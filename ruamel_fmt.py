@@ -35,7 +35,12 @@ def process_document(data):
     return yaml.dump(data, sys.stdout)
 
 
-if __name__ == "__main__":
+def main():
     # Read from stdin if no file provided
     data = Path(sys.argv[1]) if len(sys.argv) > 1 else sys.stdin
+    # FIXME Add a proper RC here
     process_document(data)
+
+
+if __name__ == "__main__":
+    main()

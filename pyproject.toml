@@ -13,6 +13,9 @@ python = "^3.10"
 ipython = "^0.8.5"
 neovim = "^0.3.1"
 
+[tool.poetry.scripts]
+ruamel-fmt = "ruamel_fmt:main"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
