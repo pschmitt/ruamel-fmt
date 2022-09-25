@@ -4,6 +4,7 @@
 
 import sys
 from pathlib import Path
+from signal import SIG_DFL, SIGPIPE, signal
 
 import ruamel.yaml
 
@@ -36,6 +37,11 @@ def process_document(data):
 
 
 def main():
+    # I'm sorry, Jon.
+    # https://linuxpip.org/broken-pipe-python-error/
+    # Ignore SIG_PIPE and don't throw exceptions on it...
+    # http://docs.python.org/library/signal.html
+    signal(SIGPIPE, SIG_DFL)
     # Read from stdin if no file provided
     data = Path(sys.argv[1]) if len(sys.argv) > 1 else sys.stdin
     # FIXME Add a proper RC here
