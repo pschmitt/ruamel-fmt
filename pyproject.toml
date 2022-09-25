@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "ruamel_fmt"
+version = "0.0.1"
+description = "Format YAML documents, for humans to read"
+authors = ["Philipp Schmitt <philipp@schmitt.co>"]
+license = "GPL-3"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+"ruamel.yaml" = "^0.17.21"
+
+[tool.poetry.dev-dependencies]
+ipython = "^0.8.5"
+neovim = "^0.3.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
