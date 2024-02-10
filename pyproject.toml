@@ -1,21 +1,35 @@
-[tool.poetry]
+[build-system]
+requires = ["setuptools>=42", "wheel", "setuptools-scm[toml]>=3.4"]
+build-backend = "setuptools.build_meta"
+
+[project]
 name = "ruamel_fmt"
 version = "0.0.2"
 description = "Format YAML documents, for humans to read"
-authors = ["Philipp Schmitt <philipp@schmitt.co>"]
-license = "GPL-3"
+authors = [
+  {name = "Philipp Schmitt", email = "philipp@schmitt.co"},
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["yaml", "formatting"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-"ruamel.yaml" = "^0.18.1"
+# NOTE ruamel.yaml 0.17.22 is the latest version that installs cleanly
+# on Termux (aarch64)
+dependencies = [
+  "ruamel.yaml <= 0.17.22; platform_machine == 'aarch64'",
+  "ruamel.yaml; platform_machine != 'aarch64'"
+]
 
-[tool.poetry.dev-dependencies]
-ipython = "^8.5.0"
-neovim = "^0.3.1"
+[project.optional-dependencies]
+dev = [
+  "ipython>=8.5.0",
+  "neovim>=0.3.1",
+]
 
-[tool.poetry.scripts]
+[project.scripts]
 ruamel-fmt = "ruamel_fmt:main"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
