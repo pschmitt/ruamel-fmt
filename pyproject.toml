@@ -19,7 +19,7 @@ classifiers = [
 ]
 
 dependencies = [
-  "ruamel.yaml <= 0.18.14; platform_machine == 'aarch64'",
+  "ruamel.yaml <= 0.18.15; platform_machine == 'aarch64'",
   "ruamel.yaml; platform_machine != 'aarch64'"
 ]
 
