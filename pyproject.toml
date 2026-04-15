@@ -25,7 +25,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-  "ipython>=8.5.0",
+  "ipython>=8.39.0",
   "neovim>=0.3.1",
 ]
 
