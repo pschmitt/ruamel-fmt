@@ -24,6 +24,10 @@
           version = "0.0.2";
           src = ./.;
           pyproject = true;
+          postPatch = ''
+            substituteInPlace pyproject.toml \
+              --replace-fail 'setuptools-scm[toml]>=10.0.5' 'setuptools-scm[toml]'
+          '';
           nativeBuildInputs = with pyPkgs; [
             setuptools
             setuptools-scm
